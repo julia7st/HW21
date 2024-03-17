@@ -14,21 +14,25 @@ test("Practice with tabs", async ({ page }) => {
   await tab3.locator("xpath = //a[contains(text(),'Docs')]").click();
 
   await page.locator("xpath = //a[contains(text(),'Writing tests')]").click();
-  await tab2.locator("xpath = //a[contains(text(),'Generating tests')]").click();
-  await tab3.locator("xpath = //a[contains(text(),'Running and debugging tests')]").click();
+  await tab2
+    .locator("xpath = //a[contains(text(),'Generating tests')]")
+    .click();
+  await tab3
+    .locator("xpath = //a[contains(text(),'Running and debugging tests')]")
+    .click();
 });
 
 test("Practice with browsers", async () => {
- let myChromium = await chromium.launch();
- let myContext = await myChromium.newContext();
- let pageChromium = await myContext.newPage();
- await pageChromium.goto("https://playwright.dev");
+  let myChromium = await chromium.launch();
+  let myContext = await myChromium.newContext();
+  let pageChromium = await myContext.newPage();
+  await pageChromium.goto("https://playwright.dev");
 
- let myFirefox = await firefox.launch();
- let FirefoxContext = await myFirefox.newContext();
- let FirefoxPage1 = await FirefoxContext.newPage();
- await FirefoxPage1.goto("https://www.w3schools.com/");
+  let myFirefox = await firefox.launch();
+  let FirefoxContext = await myFirefox.newContext();
+  let FirefoxPage1 = await FirefoxContext.newPage();
+  await FirefoxPage1.goto("https://www.w3schools.com/");
 
- await pageChromium.locator("xpath = //a[contains(text(),'Docs')]").click();
- await FirefoxPage1.goto("https://wikipedia.org");
+  await pageChromium.locator("xpath = //a[contains(text(),'Docs')]").click();
+  await FirefoxPage1.goto("https://wikipedia.org");
 });
